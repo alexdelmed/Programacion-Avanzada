@@ -1,0 +1,36 @@
+
+1079. Maximum
+
+author: Emil Kelevedzhiev,   Problem Source: Winter Mathematical Festival Varna '2001 Informatics Tournament
+
+Consider the sequence of numbers ai, i = 0, 1, 2, …, which satisfies the following requirements:
+a0 = 0
+a1 = 1
+a2i = ai
+a2i+1 = ai + ai+1
+for every i = 1, 2, 3, … .
+Write a program which for a given value of n finds the largest number among the numbers a0, a1, …, an.
+
+Input
+You are given several test cases (not more than 10). Each test case is a line containing an integer n (1 ≤ n ≤ 99 999). The last line of input contains 0.
+
+
+Output
+For every n in the input write the corresponding maximum value found.
+
+Sample
+input	output
+5        3
+10       4
+0
+
+------Breakdown
+The program has to be capeable to get the answer to the equation. With every iteration it gets a diferent number to get to the formula until the final answer arrives.
+Asking the user, doing the execution based on the parameters set.
+------Análisis
+Fist we ask the user for the number.
+In case the number is 0, the program is terminated.
+If it is another number, it will be added to the "Maximun" algorithm.
+In which it will be checked if it is even or not, and in case of not being removed half by adding 1.
+At the end taking the result
+
