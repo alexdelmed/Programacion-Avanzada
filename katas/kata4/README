@@ -1,0 +1,18 @@
+
+Valid Number
+
+Validate if a given string is numeric.
+
+Some examples:
+"0" => true
+" 0.1 " => true
+"abc" => false
+"1 a" => false
+"2e10" => true
+
+
+There can not be space between numbers.
+
+You can use the point only once and you have to have numbers later.
+
+It can be used only once, it has to have numbers before and after and there can be no point after or just before it.
