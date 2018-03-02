@@ -54,7 +54,7 @@ return 0;
 
 static char * testHashInsert() {
 
-int sizeHash = 1;
+unsigned sizeHash = 1;
 
 HashInt hash;
 
@@ -63,6 +63,8 @@ hashInit(&hash,sizeHash);
 hashInsert(&hash,"cuarenta",40);
 
 hashInsert(&hash,"cincuenta",50);
+
+printf("hash.data = %p\n",hash.data[0].elements);
 
 muAssert("error, first key cuarenta", strcmp(hash.data[0].elements[0].key,"cuarenta") == 0);
 
@@ -78,9 +80,55 @@ return 0;
 
 
 
+static char * testHashGet() {
+
+int sizeHash = 1;
+
+int *value;
+
+int *noValue;
+
+HashInt hash;
+
+hashInit(&hash,sizeHash);
+
+hashInsert(&hash,"cuarenta",40);
+
+hashInsert(&hash,"cincuenta",50);
+
+value = hashGet(&hash,"cincuenta");
+
+noValue = hashGet(&hash,"cien");
+
+muAssert("error, value must be 50", *value == 50);
+
+muAssert("error, novalue must be NULL", noValue == NULL);
+
+return 0;
+
+}
 
 
 
+static char * testHashUpsert() {
+
+unsigned sizeHash = 1;
+
+HashInt hash;
+
+hashInit(&hash,sizeHash);
+
+hashInsert(&hash,"cuarenta",40);
+
+hashInsert(&hash,"cuarenta",80);
+
+muAssert("error, first key cuarenta", strcmp(hash.data[0].elements[0].key,"cuarenta") == 0);
+
+muAssert("error, first value 80", hash.data[0].elements[0].value == 80);
+
+return 0;
+
+}
 
 
 
@@ -89,6 +137,10 @@ static char * allTests() {
 muRunTest(testHashInit);
 
 muRunTest(testHashInsert);
+
+muRunTest(testHashGet);
+
+muRunTest(testHashUpsert);
 
 return 0;
 

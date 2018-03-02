@@ -12,7 +12,9 @@ typedef struct d {
 
 Element *elements;
 
-int count;
+unsigned count;
+
+unsigned length;
 
 } HashElement;
 
@@ -21,7 +23,7 @@ typedef struct h {
 
 HashElement *data;
 
-int size;
+unsigned size;
 
 ///
 
@@ -29,6 +31,8 @@ int size;
 
 
 
-void hashInit(HashInt *,int);
+void hashInit(HashInt *,unsigned);
 
 void hashInsert(HashInt *,char *,int);
+
+int * hashGet(HashInt *, char *);
